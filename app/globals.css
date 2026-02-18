@@ -1,26 +1,75 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Core Colors */
+  --gold: #FFD700;
+  --gold-bright: #FFF176;
+  --gold-dark: #B8860B;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Neon Accents (Cyberpunk Palette) */
+  --neon-cyan: #00F0FF;
+  --neon-purple: #BC13FE;
+  --neon-magenta: #FF00FF;
+  --neon-blue: #2DE2E6;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Backgrounds */
+  --bg-deep: #000000;
+  /* True OLED Black */
+  --bg-card: rgba(15, 10, 30, 0.6);
+  /* Deep Purple-Black Tint */
+  --bg-glass: rgba(255, 255, 255, 0.03);
+
+  /* Borders */
+  --border-gold: rgba(255, 215, 0, 0.3);
+  --border-neon: rgba(0, 240, 255, 0.3);
+
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-dim: rgba(255, 255, 255, 0.6);
+  --text-gold: #FFD700;
+
+  /* Semantic */
+  --success: #00E676;
+  --error: #FF1744;
+  --warning: #FF8C00;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(188, 19, 254, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.08) 0%, transparent 25%);
+  background-attachment: fixed;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--gold-dark), var(--gold));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-bright);
+}
+
+/* Utilities for Text Glow */
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.text-glow-neon {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(188, 19, 254, 0.5);
 }
